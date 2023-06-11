@@ -1,0 +1,47 @@
+Assignment name : aff_a
+Expected files : aff_a.c
+Allowed functions: write
+
+Write a program that takes a string, and displays the first 'a' character it encounters in it, followed by a newline. If there are no 'a' characters in the string, the program just writes a newline. If the number of parameters is not 1, the program displays 'a' followed by a newline.
+
+Example:
+
+$> ./aff_a "abc" | cat -e
+a$
+$> ./aff_a "dubO a POIL" | cat -e
+a$
+$> ./aff_a "zz sent le poney" | cat -e
+$
+$> ./aff_a | cat -e
+a$
+
+Here's the code for the `aff_a.c` program:
+
+```c
+#include <unistd.h>
+
+int main(int argc, char *argv[])
+{
+    if (argc != 2)
+    {
+        write(1, "a\n", 2);
+        return 0;
+    }
+
+    char *str = argv[1];
+    while (*str)
+    {
+        if (*str == 'a')
+        {
+            write(1, "a\n", 2);
+            return 0;
+        }
+        str++;
+    }
+
+    write(1, "\n", 1);
+    return 0;
+}
+```
+
+This program checks if the number of command-line arguments is 1. If it's not, it writes 'a' followed by a newline and exits. Otherwise, it iterates through the characters of the input string and checks if any of them is equal to 'a'. If an 'a' is found, it writes 'a' followed by a newline and exits. If no 'a' is found, it writes a newline character.
