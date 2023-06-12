@@ -1,0 +1,56 @@
+Assignment name  : ft_strcmp
+Expected files   : ft_strcmp.c
+Allowed functions: 
+--------------------------------------------------------------------------------
+
+Reproduce the behavior of the function strcmp (man strcmp).
+
+Your function must be declared as follows:
+
+int    ft_strcmp(char *s1, char *s2);
+
+Here's an example implementation of the `ft_strcmp` function in C:
+
+```c
+int ft_strcmp(char *s1, char *s2) {
+    int i = 0;
+    
+    while (s1[i] && s2[i] && s1[i] == s2[i]) {
+        i++;
+    }
+    
+    return s1[i] - s2[i];
+}
+```
+
+In this function, we compare the characters of the two input strings `s1` and `s2` until we encounter a mismatch or reach the end of either string. We use a `while` loop to iterate through the characters, and the loop condition checks if the current characters are equal and not null-terminators.
+
+If a mismatch is found, the function returns the difference between the ASCII values of the mismatching characters. If both strings are identical, the loop exits when both characters are null-terminators, and the function returns 0.
+
+You can use this function to compare strings in a similar way to the standard `strcmp` function:
+
+```c
+int main() {
+    char str1[] = "Hello";
+    char str2[] = "World";
+    
+    int result = ft_strcmp(str1, str2);
+    
+    if (result < 0) {
+        printf("str1 is less than str2\n");
+    } else if (result > 0) {
+        printf("str1 is greater than str2\n");
+    } else {
+        printf("str1 is equal to str2\n");
+    }
+    
+    return 0;
+}
+```
+
+Output:
+```
+str1 is less than str2
+```
+
+In the above example, we compare the strings "Hello" and "World" using the `ft_strcmp` function. Since "Hello" comes before "World" in lexicographical order, the result is negative (`str1` is less than `str2`).
