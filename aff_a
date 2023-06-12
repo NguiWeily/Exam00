@@ -17,31 +17,41 @@ a$
 
 Here's the code for the `aff_a.c` program:
 
-```c
 #include <unistd.h>
 
-int main(int argc, char *argv[])
-{
-    if (argc != 2)
-    {
-        write(1, "a\n", 2);
+int main(int argc, char *argv[]) {
+    if (argc != 2) {  // Check if the number of arguments is not 1
+        write(1, "a\n", 2);  // Display 'a' followed by a newline
         return 0;
     }
 
-    char *str = argv[1];
-    while (*str)
-    {
-        if (*str == 'a')
-        {
-            write(1, "a\n", 2);
+    char *str = argv[1];  // Get the first argument
+
+    while (*str) {  // Iterate through each character of the string
+        if (*str == 'a') {  // Check if the character is 'a'
+            write(1, "a\n", 2);  // Display 'a' followed by a newline
             return 0;
         }
-        str++;
+        str++;  // Move to the next character
     }
 
-    write(1, "\n", 1);
+    write(1, "\n", 1);  // No 'a' found, display a newline
     return 0;
 }
-```
 
-This program checks if the number of command-line arguments is 1. If it's not, it writes 'a' followed by a newline and exits. Otherwise, it iterates through the characters of the input string and checks if any of them is equal to 'a'. If an 'a' is found, it writes 'a' followed by a newline and exits. If no 'a' is found, it writes a newline character.
+Explanation:
+The program starts by including the necessary header file unistd.h, which provides the write function for writing to the standard output.
+The main function takes two parameters, argc (argument count) and argv (argument vector), which represent the command-line arguments passed to the program.
+The program checks if the number of arguments (argc) is not equal to 2. If it's not equal to 2, it means there is either no argument or more than one argument provided.
+Inside the if condition, it writes the character 'a' followed by a newline ('\n') to the standard output using the write function. This indicates that there are no 'a' characters in the string.
+If the number of arguments is exactly 2, it assigns the value of the first argument (argv[1]) to the variable str.
+It then enters a loop that iterates through each character of the string str until it reaches the null terminator ('\0').
+Inside the loop, it checks if the current character is 'a'. If it is, it writes the character 'a' followed by a newline ('\n') to the standard output using the write function.
+After writing 'a' and newline, it returns from the program.
+If no 'a' character is found in the string, it writes a newline ('\n') to the standard output using the write function.
+Finally, it returns 0 to indicate successful program execution.
+The program reads the command-line argument provided and checks if it contains the character 'a'. If 'a' is present, it writes 'a' followed by a newline. If 'a' is not present or no argument is provided, it writes a newline.
+
+gcc aff_a.c -o aff_a -Wall -Wextra -Werror -std=c99 -L .
+
+
