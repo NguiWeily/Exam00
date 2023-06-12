@@ -1,0 +1,39 @@
+Assignment name  : hello
+Expected files   : hello.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program that displays "Hello World!" followed by a \n.
+
+Example:
+
+$>./hello
+Hello World!
+$>./hello | cat -e
+Hello World!$
+$>
+
+Here's an example implementation of the `hello` program in C:
+
+```c
+#include <unistd.h>
+
+int main() {
+    write(1, "Hello World!\n", 13);
+    return 0;
+}
+```
+
+In this program, we include the `<unistd.h>` header file to have access to the `write()` function.
+
+In the `main()` function, we use the `write()` function to write the string `"Hello World!\n"` to the standard output. The first argument `1` represents the file descriptor for the standard output. The second argument is the address of the string, and the third argument `13` is the length of the string (including the newline character).
+
+To compile and run the program, you can use a C compiler such as `gcc`:
+
+```
+$ gcc hello.c -o hello
+$ ./hello
+Hello World!
+```
+
+When you execute the program, it displays "Hello World!" followed by a newline character `\n`.
