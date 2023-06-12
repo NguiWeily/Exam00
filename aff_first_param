@@ -13,9 +13,6 @@ j'aime le fromage de chevre$
 $> ./aff_first_param
 $
 
-Here's the code for the `aff_first_param.c` program:
-
-```c
 #include <unistd.h>
 
 int main(int argc, char *argv[])
@@ -36,6 +33,16 @@ int main(int argc, char *argv[])
     write(1, "\n", 1);
     return 0;
 }
-```
 
-This program checks if the number of command-line arguments is less than 2. If it is, it writes a newline character and exits. Otherwise, it iterates through the characters of the first argument and writes each character to the standard output. Finally, it writes a newline character.
+refactor become
+
+#include <unistd.h>
+
+int		main(int ac, char **av)
+{
+	if (ac > 1)
+		while (*av[1])
+			write(1, av[1]++, 1);
+	write(1, "\n", 1);
+	return (0);
+}
