@@ -1,0 +1,68 @@
+Assignment name  : ft_atoi
+Expected files   : ft_atoi.c
+Allowed functions: None
+--------------------------------------------------------------------------------
+
+Write a function that converts the string argument str to an integer (type int)
+and returns it.
+
+It works much like the standard atoi(const char *str) function, see the man.
+
+Your function must be declared as follows:
+
+int	ft_atoi(const char *str);
+
+Here's an example implementation of the `ft_atoi` function in C:
+
+```c
+#include <stdio.h>
+
+int ft_atoi(const char *str) {
+    if (str == NULL)
+        return 0;
+    
+    int result = 0;
+    int sign = 1;
+    int i = 0;
+    
+    // Skip leading whitespace
+    while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+        i++;
+    
+    // Check for sign
+    if (str[i] == '-' || str[i] == '+') {
+        if (str[i] == '-')
+            sign = -1;
+        i++;
+    }
+    
+    // Convert digits to integer
+    while (str[i] >= '0' && str[i] <= '9') {
+        result = (result * 10) + (str[i] - '0');
+        i++;
+    }
+    
+    return result * sign;
+}
+
+int main() {
+    const char *str = "12345";
+    
+    int number = ft_atoi(str);
+    
+    printf("Converted number: %d\n", number);
+    
+    return 0;
+}
+```
+
+Output:
+```
+Converted number: 12345
+```
+
+In this implementation, the `ft_atoi` function takes a string `str` as input and converts it to an integer. It skips any leading whitespace characters and checks for a sign (+/-) if present. Then, it iterates through the string and converts each digit character to an integer value by subtracting the ASCII value of '0' from it. The result is accumulated by multiplying the previous value by 10 and adding the current digit value.
+
+Finally, the result is multiplied by the sign value and returned as the converted integer.
+
+Note: This implementation assumes that the input string is a valid representation of an integer. It does not handle non-digit characters or overflow situations.
