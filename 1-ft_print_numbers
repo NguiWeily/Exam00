@@ -1,57 +1,29 @@
+/*
 Assignment name  : ft_print_numbers
 Expected files   : ft_print_numbers.c
 Allowed functions: write
 --------------------------------------------------------------------------------
-
 Write a function that displays all digits in ascending order.
-
 Your function must be declared as follows:
-
 void	ft_print_numbers(void);
-
-Here's an example implementation of the `ft_print_numbers` function in C:
-
-```c
+*/
 #include <unistd.h>
-
 void ft_print_numbers(void) {
     char digit = '0';
-
     while (digit <= '9') {
         write(1, &digit, 1);
         digit++;
     }
 }
-```
-
-In this function, we include the `<unistd.h>` header file to have access to the `write()` function.
-
-The `ft_print_numbers` function is declared with a return type of `void` and takes no arguments.
-
-We declare a character variable `digit` and initialize it with the value `'0'`, which represents the lowest digit.
-
-We then enter a `while` loop that iterates as long as `digit` is less than or equal to `'9'`, which represents the highest digit. Inside the loop, we use the `write()` function to write the current value of `digit` to the standard output. The first argument `1` represents the file descriptor for the standard output, and the second argument `&digit` is the address of the character to be written. The third argument `1` specifies the number of bytes to be written.
-
-After the loop, the function returns, indicating the end of its execution.
 
 To test the function, you can call it from the `main()` function or another program:
-
-```c
 int main() {
     ft_print_numbers();
     write(1, "\n", 1);
     return 0;
 }
-```
-
-In this example, we call `ft_print_numbers()` to display all the digits from `'0'` to `'9'`. We also write a newline character `"\n"` to the standard output to print a newline after the digits.
 
 To compile and run the program, you can use a C compiler such as `gcc`:
-
-```
 $ gcc ft_print_numbers.c -o ft_print_numbers
 $ ./ft_print_numbers
 0123456789
-```
-
-When you execute the program, it displays all the digits from `'0'` to `'9'` in ascending order, followed by a newline.
