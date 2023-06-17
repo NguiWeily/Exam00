@@ -26,6 +26,6 @@ int main() {
 }
 
 To compile and run the program, you can use a C compiler such as `gcc`:
-$ gcc ft_print_numbers.c ft_print*_numbers2.c -o ft_print_numbers -Wall -Wextra -Werror -L . -std=C99
+$ gcc ft_print_numbers.c ft_print*_numbers2.c -o ft_print_numbers -Wall -Wextra -Werror -L . -std=c99
 $ ./ft_print_numbers
 0123456789
