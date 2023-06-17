@@ -11,9 +11,9 @@ zYxWvUtSrQpOnMlKjIhGfEdCbA$
 */
 #include <unistd.h>
 int main() {
-    char even = 'Z';
-    char odd = 'y';
-    while (even >= 'B' && odd >= 'a') {
+    char even = 'z';
+    char odd = 'Y';
+    while (even >= 'b' && odd >= 'A') {
         write(1, &even, 1);
         write(1, &odd, 1);
         even -= 2;
