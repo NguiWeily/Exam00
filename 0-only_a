@@ -9,3 +9,4 @@ int main() {
     return 0;
 }
 
+gcc only_a.c -o only_a -Wall -Wextra -Werror -L . -std=c99
