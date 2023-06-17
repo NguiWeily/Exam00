@@ -13,11 +13,11 @@ zYxWvUtSrQpOnMlKjIhGfEdCbA$
 int main() {
     char even = 'Z';
     char odd = 'y';
-    while (odd >= 'a') {
-        write(1, &odd, 1);
+    while (even >= 'B' && odd >= 'a') {
         write(1, &even, 1);
-        odd -= 2;
+        write(1, &odd, 1);
         even -= 2;
+        odd -= 2;
     }
     write(1, "\n", 1);
     return 0;
