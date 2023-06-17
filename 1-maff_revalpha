@@ -1,52 +1,29 @@
+/*
 Assignment name  : maff_revalpha
 Expected files   : maff_revalpha.c
 Allowed functions: write
 --------------------------------------------------------------------------------
-
 Write a program that displays the alphabet in reverse, with even letters in
 uppercase, and odd letters in lowercase, followed by a newline.
-
 Example:
-
 $> ./maff_revalpha | cat -e
 zYxWvUtSrQpOnMlKjIhGfEdCbA$
-
-Here's an example implementation of the `maff_revalpha` program in C:
-
-```c
+*/
 #include <unistd.h>
-
 int main() {
     char even = 'Z';
     char odd = 'y';
-
     while (odd >= 'a') {
         write(1, &odd, 1);
         write(1, &even, 1);
         odd -= 2;
         even -= 2;
     }
-
     write(1, "\n", 1);
-
     return 0;
 }
-```
-
-In this program, we include the `<unistd.h>` header file to have access to the `write()` function.
-
-In the `main()` function, we declare two character variables `even` and `odd`. `even` represents the uppercase letters for even positions, starting from `'Z'`, and `odd` represents the lowercase letters for odd positions, starting from `'y'`.
-
-We then enter a `while` loop that iterates as long as `odd` is greater than or equal to `'a'`, which represents the start of the lowercase letters. Inside the loop, we use the `write()` function to write the current values of `odd` and `even` to the standard output. First, we write `odd` to display the lowercase letter, and then we write `even` to display the uppercase letter. After that, we decrement `odd` by 2 to move to the previous odd letter and decrement `even` by 2 to move to the previous even letter.
-
-After the loop, we use the `write()` function to write a newline character `"\n"` to the standard output, which prints a newline after displaying the reversed alphabet.
 
 To compile and run the program, you can use a C compiler such as `gcc`:
-
-```
 $ gcc maff_revalpha.c -o maff_revalpha
 $ ./maff_revalpha
 zYxWvUtSrQpOnMlKjIhGfEdCbA
-```
-
-When you execute the program, it displays the alphabet in reverse order with even letters in uppercase and odd letters in lowercase, followed by a newline.
