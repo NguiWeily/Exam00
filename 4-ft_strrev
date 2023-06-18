@@ -39,8 +39,3 @@ int main() {
 Output:
 Original string: Hello, World!
 Reversed string: !dlroW ,olleH
-
-In this implementation, the `ft_strrev` function takes a string `str` as input and reverses it in-place. It uses two pointers, `start` and `end`, initialized to the beginning and end of the string, respectively. 
-The function swaps the characters at `start` and `end`, and then moves `start` one position to the right and `end` one position to the left. This process continues until `start` is no longer less than `end`, effectively reversing the string. 
-Finally, the function returns the modified string.
-Note: It's important to ensure that the input string `str` is not `NULL` before performing any operations on it.
