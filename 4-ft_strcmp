@@ -8,25 +8,34 @@ Your function must be declared as follows:
 int    ft_strcmp(char *s1, char *s2);
 */
 #include <stdio.h>
+
 int ft_strcmp(char *s1, char *s2) {
-    int i = 0;
+    int i = 0; // Initialize the index variable
+    
+    // Iterate through the strings until a difference or null terminator is encountered
     while (s1[i] && s2[i] && s1[i] == s2[i]) {
-        i++;
+        i++; // Increment the index
     }
-    return s1[i] - s2[i];
+    
+    return s1[i] - s2[i]; // Return the difference in ASCII values of the differing characters
 }
+
 int main() {
-    char str1[] = "Hello";
-    char str2[] = "World";
-    int result = ft_strcmp(str1, str2);
+    char str1[] = "Hello"; // First string to compare
+    char str2[] = "World"; // Second string to compare
+    
+    int result = ft_strcmp(str1, str2); // Call ft_strcmp function to compare the strings
+    
     if (result < 0) {
-        printf("str1 is less than str2\n");
+        printf("str1 is less than str2\n"); // str1 is lexicographically less than str2
     } else if (result > 0) {
-        printf("str1 is greater than str2\n");
+        printf("str1 is greater than str2\n"); // str1 is lexicographically greater than str2
     } else {
-        printf("str1 is equal to str2\n");
+        printf("str1 is equal to str2\n"); // str1 is equal to str2
     }
-    printf("Comparison result: %d\n", result);    
+    
+    printf("Comparison result: %d\n", result); // Print the comparison result
+    
     return 0;
 }
 
