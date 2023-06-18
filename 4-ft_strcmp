@@ -15,8 +15,6 @@ int ft_strcmp(char *s1, char *s2) {
     return s1[i] - s2[i];
 }
 
-In this function, we compare the characters of the two input strings `s1` and `s2` until we encounter a mismatch or reach the end of either string. We use a `while` loop to iterate through the characters, and the loop condition checks if the current characters are equal and not null-terminators.
-If a mismatch is found, the function returns the difference between the ASCII values of the mismatching characters. If both strings are identical, the loop exits when both characters are null-terminators, and the function returns 0.
 You can use this function to compare strings in a similar way to the standard `strcmp` function:
 #include <stdio.h>
 void ft_strcmp();
