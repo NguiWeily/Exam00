@@ -10,33 +10,39 @@ Your function must be declared as follows:
 int	ft_atoi(const char *str);
 */
 #include <stdio.h>
+
 int ft_atoi(const char *str) {
-    if (str == NULL)
-        return 0;
-    int result = 0;
-    int sign = 1;
-    int i = 0;
+    if (str == NULL) // Check if the input string is NULL
+        return 0; // Return 0 if the string is NULL
+    
+    int result = 0; // Initialize the variable to store the final integer result
+    int sign = 1; // Initialize the sign variable to positive
+    int i = 0; // Initialize the index variable
+    
     // Skip leading whitespace
     while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-        i++;
+        i++; // Increment the index to skip whitespace characters
+    
     // Check for sign
-    if (str[i] == '-' || str[i] == '+') {
-        if (str[i] == '-')
-            sign = -1;
-        i++;
+    if (str[i] == '-' || str[i] == '+') { // If the current character is a sign
+        if (str[i] == '-') // If the sign is negative
+            sign = -1; // Set the sign variable to negative
+        i++; // Increment the index to move past the sign character
     }
+    
     // Convert digits to integer
-    while (str[i] >= '0' && str[i] <= '9') {
-        result = (result * 10) + (str[i] - '0');
-        i++;
+    while (str[i] >= '0' && str[i] <= '9') { // While the current character is a digit
+        result = (result * 10) + (str[i] - '0'); // Convert the digit to its numeric value and accumulate it
+        i++; // Increment the index to move to the next character
     }
-    return result * sign;
+    
+    return result * sign; // Return the final integer result multiplied by the sign
 }
 
 int main() {
-    const char *str = "12345";
-    int number = ft_atoi(str);
-    printf("Converted number: %d\n", number);
+    const char *str = "12345"; // Input string to convert to an integer
+    int number = ft_atoi(str); // Call the ft_atoi function to convert the string to an integer
+    printf("Converted number: %d\n", number); // Print the converted number
     return 0;
 }
 
