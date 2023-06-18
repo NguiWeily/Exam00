@@ -9,30 +9,41 @@ Your function must be declared as follows:
 char    *ft_strrev(char *str);
 */
 #include <stdio.h>
+
 char *ft_strrev(char *str) {
-    if (str == NULL)
-        return NULL;
-    int length = 0;
+    if (str == NULL) // Check if the input string is NULL
+        return NULL; // Return NULL if the string is NULL
+    
+    int length = 0; // Initialize the length variable
+    
+    // Calculate the length of the string
     while (str[length] != '\0') {
-        length++;
+        length++; // Increment the length variable until the null terminator is encountered
     }
-    int start = 0;
-    int end = length - 1;
+    
+    int start = 0; // Initialize the start index
+    int end = length - 1; // Initialize the end index
+    
+    // Reverse the string by swapping characters
     while (start < end) {
-        char temp = str[start];
-        str[start] = str[end];
-        str[end] = temp;
-        start++;
-        end--;
+        char temp = str[start]; // Temporary variable to store a character
+        str[start] = str[end]; // Swap the characters
+        str[end] = temp; // Assign the temporary character to the other position
+        start++; // Increment the start index
+        end--; // Decrement the end index
     }
-    return str;
+    
+    return str; // Return the reversed string
 }
 
 int main() {
-    char str[] = "Hello, World!";
-    printf("Original string: %s\n", str);
-    ft_strrev(str);
-    printf("Reversed string: %s\n", str);
+    char str[] = "Hello, World!"; // Input string
+    printf("Original string: %s\n", str); // Print the original string
+    
+    ft_strrev(str); // Call ft_strrev function to reverse the string
+    
+    printf("Reversed string: %s\n", str); // Print the reversed string
+    
     return 0;
 }
 
