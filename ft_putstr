@@ -1,0 +1,39 @@
+Assignment name  : ft_putstr
+Expected files   : ft_putstr.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a function that displays a string on the standard output.
+
+The pointer passed to the function contains the address of the string's first
+character.
+
+Your function must be declared as follows:
+
+void	ft_putstr(char *str); create main code and comply norminette and don't use "for" and function as short as possible 
+Certainly! Here's an updated implementation of the `ft_putstr` function that includes a main test code and complies with norminette, without using a `for` loop, and as short as possible:
+
+```c
+#include <unistd.h>
+
+void	ft_putstr(char *str)
+{
+	while (*str)
+		write(1, str++, 1);
+}
+
+int	main(void)
+{
+	char *str = "Hello, World!";
+	ft_putstr(str);
+	return 0;
+}
+```
+
+Explanation:
+- The `main` function serves as a test code for the `ft_putstr` function.
+- The variable `str` is initialized with the string `"Hello, World!"`.
+- The `ft_putstr` function is called with `str` as an argument, which will display the string on the standard output.
+- Finally, the `main` function returns 0 to indicate successful execution.
+
+Note: Make sure to compile the code and link it with the necessary libraries (e.g., `-l` option for the linker to include the `libc` library) in order to run it successfully.
